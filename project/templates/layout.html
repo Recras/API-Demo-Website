@@ -41,6 +41,7 @@
 				('home', 'Home'),
 				('arrangementen', 'Arrangementen'),
 				('producten', 'Producten'),
+				('contactformulier', 'Contact'),
 			] %}
 			<li{% if endpoint == request.endpoint %} class="active"{% endif %}>
 				<a href="{{ url_for(endpoint) }}">{{ caption }}</a>
