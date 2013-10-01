@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import requests
+
 app = Flask(__name__)
 app.config['RECRAS_URL'] = 'https://demo.recras.nl/'
 app.config['RECRAS_CRT'] = 'recras.nl.crt'
