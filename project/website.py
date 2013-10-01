@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 app.config['RECRAS_URL'] = 'https://demo.recras.nl/'
-app.config['RECRAS_CRT'] = 'recras.nl.crt'
+app.config['RECRAS_CRT'] = 'project/recras.nl.crt'
 
 @app.route('/')
 def home():
