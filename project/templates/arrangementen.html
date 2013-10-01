@@ -15,7 +15,7 @@
 		{% for arrangement in arrangementen %}
 			<tr>
 				<td><a href="{{ url_for('arrangement', arrangement_id=arrangement['id']) }}">{{ arrangement['naam'] }}</a></td>
-				<td>{{ arrangement['prijs_pp_inc'] }}</td>
+				<td>€ {{ '%.2f' % arrangement['prijs_pp_inc'] }}</td>
 				<td>{{ arrangement['aantal_personen'] }}</td>
 			</tr>	
 		{% endfor %}
