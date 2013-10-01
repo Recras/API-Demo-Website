@@ -38,6 +38,7 @@
 			{%- for endpoint, caption in [
 				('home', 'Home'),
 				('arrangementen', 'Arrangementen'),
+				('producten', 'Producten'),
 			] %}
 			<li{% if endpoint == request.endpoint %} class="active"{% endif %}>
 				<a href="{{ url_for(endpoint) }}">{{ caption }}</a>

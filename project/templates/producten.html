@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if producten %}
+	<h2>Onze Producten</h2>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Naam</th>
+				<th>Prijs Inc BTW</th>
+				<th>Prijs Per</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for product in producten %}
+			<tr>
+				<td>{{ product['naam'] }}</td>
+				<td>{{ product['prijs_inc'] }}</td>
+				<td>{{ product['wat'] }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</ul>
+{% endif %}
+
+{% endblock %}
