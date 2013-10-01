@@ -15,7 +15,7 @@
 		{% for product in producten %}
 			<tr>
 				<td>{{ product['naam'] }}</td>
-				<td>{{ product['prijs_inc'] }}</td>
+				<td>€ {{ '%.2f' % product['prijs_inc'] }}</td>
 				<td>{{ product['wat'] }}</td>
 			</tr>
 		{% endfor %}
