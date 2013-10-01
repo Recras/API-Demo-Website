@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if arrangement %}
+	<h2>{{ arrangement['naam'] }}</h2>
+	Aantal personen: {{arrangement['aantal_personen']}}
+{% endif %}
+
+{% endblock %}
