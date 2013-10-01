@@ -1,6 +1,36 @@
 {% extends "layout.html" %}
+
+
+ {% block jumbotron %}
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welkom!</h1>
+    <p>Dit is de demonstratie-website van Recras. Op deze website zie je de integratie tussen Recras en een losse website.</p>
+    <!-- <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p> -->
+  </div>
+</div>
+ {% endblock %}
+
 {% block body %}
+<!-- Example row of columns -->
+<div class="row">
+	<div class="col-lg-4">
+	  <h2>Contactformulier</h2>
+	  <p>Het is zeer makkelijk om een contactformulier te integreren op een website. Ingevulde formulieren komen automatisch in Recras.</p>
+	  <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+	</div>
 
-<a href={{ url_for('arrangementen') }}>Arrangementen</a>
+	<div class="col-lg-4">
+	  <h2>Arrangementen</h2>
+	  <p>Met behulp van onze API is het mogelijk om automatisch up-to-date lijst van arrangementen weer te geven op de website.</p>
+	  <p><a class="btn btn-default" href="{{ url_for('arrangementen') }}">View details &raquo;</a></p>
+	</div>
 
+	<div class="col-lg-4">
+	  <h2>Producten</h2>
+	  <p>Producten uit Recras</p>
+	  <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+	</div>
+</div>
 {% endblock %}
