@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if formulier %}
+	<h2>Contactformulier</h2>
+
+	<p>Wanneer u onderstaand contactformulier invult zullen wij zo spoedig mogelijk contact met u opnemen.</p>
+
+	{{ formulier|safe }}
+{% endif %}
+
+{% endblock %}

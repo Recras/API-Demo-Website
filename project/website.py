@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import requests
+import base64
 
 app = Flask(__name__)
 app.config['RECRAS_URL'] = 'https://demo.recras.nl/'
@@ -32,6 +33,26 @@ def producten():
 	if r['succes']:
 		producten = r['results']	
 		return render_template('producten.html', producten = producten)
+
+@app.route('/contactformulier')
+def contactformulier():
+	proxy = base64.urlsafe_b64encode('/proxy'.encode('utf-8'))
+	redirect = base64.urlsafe_b64encode('/bedankt'.encode('utf-8'))
+	url = "%s/api/json/contactformulier/proxy/%s/redirect/%s" % (app.config['RECRAS_URL'], proxy.decode("utf-8"), redirect.decode("utf-8"))
+	r = requests.get(url, verify=app.config['RECRAS_CRT']).json()
+	if r['succes']:
+		return render_template('contactformulier.html', formulier = r['results'])
+
+@app.route('/proxy', methods=['POST'])
+def proxy():
+	#return str(request.form)
+	url = '%s/api/json/contactformulier' % app.config['RECRAS_URL']
+	r = requests.post(url, data=request.form, verify=app.config['RECRAS_CRT'])
+	return r.text
+
+@app.route('/bedankt')
+def bedankt():
+	return 'bedankt!'
 
 if __name__ == "__main__":
 	app.debug = True
