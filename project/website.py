@@ -45,14 +45,13 @@ def contactformulier():
 
 @app.route('/proxy', methods=['POST'])
 def proxy():
-	#return str(request.form)
 	url = '%s/api/json/contactformulier' % app.config['RECRAS_URL']
 	r = requests.post(url, data=request.form, verify=app.config['RECRAS_CRT'])
 	return r.text
 
 @app.route('/bedankt')
 def bedankt():
-	return 'bedankt!'
+	return render_template('bedankt.html')
 
 if __name__ == "__main__":
 	app.debug = True
