@@ -2,6 +2,7 @@
 {% block body %}
 
 {% if arrangementen %}
+	<h2>Onze arrangementen</h2>
 	<ul>
 	{% for arrangement in arrangementen %}
 		<li><a href="{{ url_for('arrangement', arrangement_id=arrangement['id']) }}">{{ arrangement['naam'] }}</a></li>	

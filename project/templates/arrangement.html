@@ -3,7 +3,17 @@
 
 {% if arrangement %}
 	<h2>{{ arrangement['naam'] }}</h2>
-	Aantal personen: {{arrangement['aantal_personen']}}
+	<table>
+		<tr><th>Minimum aantal personen</th><td>{{ arrangement['aantal_personen'] }}</td></th>
+		<tr><th>Prijs per persoon (exc BTW)</th><td>€ {{ '%.2f' % arrangement['prijs_pp_exc'] }}</td></th>
+		<tr><th>Prijs per persoon (inc BTW)</th><td>€ {{ '%.2f' % arrangement['prijs_pp_inc'] }}</td></th>
+	</table>
+	<h3>Voorbeeldprogramma</h3>
+	<ul>
+	{% for regel in arrangement['programma'] %}   
+		<li>{{ regel }}</li>
+	{% endfor %}
+	</ul>
 {% endif %}
 
 {% endblock %}
