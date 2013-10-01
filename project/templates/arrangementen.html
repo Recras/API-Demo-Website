@@ -3,10 +3,23 @@
 
 {% if arrangementen %}
 	<h2>Onze arrangementen</h2>
-	<ul>
-	{% for arrangement in arrangementen %}
-		<li><a href="{{ url_for('arrangement', arrangement_id=arrangement['id']) }}">{{ arrangement['naam'] }}</a></li>	
-	{% endfor %}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Naam</th>
+				<th>Prijs Inc BTW</th>
+				<th>Minimum aantal personen</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for arrangement in arrangementen %}
+			<tr>
+				<td><a href="{{ url_for('arrangement', arrangement_id=arrangement['id']) }}">{{ arrangement['naam'] }}</a></td>
+				<td>{{ arrangement['prijs_pp_inc'] }}</td>
+				<td>{{ arrangement['aantal_personen'] }}</td>
+			</tr>	
+		{% endfor %}
+		</tbody>
 </ul>
 {% endif %}
 
