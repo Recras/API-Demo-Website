@@ -49,6 +49,10 @@ def proxy():
 	r = requests.post(url, data=request.form, verify=app.config['RECRAS_CRT'])
 	return r.text
 
+@app.route('/onlineboeken')
+def onlineboeken():
+	return render_template('onlineboeken.html')
+
 @app.route('/bedankt')
 def bedankt():
 	return render_template('bedankt.html')
