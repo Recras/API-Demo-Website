@@ -3,17 +3,38 @@
 
 {% if arrangement %}
 	<h2>{{ arrangement['naam'] }}</h2>
-	<table>
-		<tr><th>Minimum aantal personen</th><td>{{ arrangement['aantal_personen'] }}</td></th>
-		<tr><th>Prijs per persoon (exc BTW)</th><td>€ {{ '%.2f' % arrangement['prijs_pp_exc'] }}</td></th>
-		<tr><th>Prijs per persoon (inc BTW)</th><td>€ {{ '%.2f' % arrangement['prijs_pp_inc'] }}</td></th>
-	</table>
-	<h3>Voorbeeldprogramma</h3>
-	<ul>
-	{% for regel in arrangement['programma'] %}   
-		<li>{{ regel }}</li>
-	{% endfor %}
+
+
+	<ul class="nav nav-tabs" data-tabs="tabs">
+		<li class="active"><a data-toggle="tab" href="#informatie">Informatie</a></li>
+		<li><a data-toggle="tab" href="#voorbeeldprogramma">Voorbeeldprogramma</a></li>
+		<li><a data-toggle="tab" href="#prijzen">Prijzen</a></li>
 	</ul>
+	
+	<div class="tab-content">
+		<div class="tab-pane active" id="informatie">
+			<h3>Informatie</h3>
+			<p>{{ data['beschrijving'] }}</p>
+		</div>
+		<div class="tab-pane" id="voorbeeldprogramma">
+			<h3>Voorbeeldprogramma</h3>
+			<ul>
+			{% for regel in arrangement['programma'] %}   
+				<li>{{ regel }}</li>
+			{% endfor %}
+			</ul>
+		</div>
+		<div class="tab-pane" id="prijzen">
+			<h3>Prijzen</h3>
+			<table>
+				<tr><th>Minimum aantal personen</th><td>{{ arrangement['aantal_personen'] }}</td></th>
+				<tr><th>Prijs per persoon (exc BTW)</th><td>€ {{ '%.2f' % arrangement['prijs_pp_exc'] }}</td></th>
+				<tr><th>Prijs per persoon (inc BTW)</th><td>€ {{ '%.2f' % arrangement['prijs_pp_inc'] }}</td></th>
+			</table>
+		</div>
+	</div>
+
+
 {% endif %}
 
 {% endblock %}
