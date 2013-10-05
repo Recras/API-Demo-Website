@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if product %}
+	<h2>{{ product['naam'] }}</h2>
+
+	Vanaf € {{ '%.2f' % product['prijs_inc'] }} per {{ product['wat'] }}
+{% endif %}
+
+{% endblock %}

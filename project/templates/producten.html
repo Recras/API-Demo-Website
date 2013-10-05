@@ -14,7 +14,7 @@
 		<tbody>
 		{% for product in producten %}
 			<tr>
-				<td>{{ product['naam'] }}</td>
+				<td><a href="{{ url_for('product', product_id=product['id']) }}">{{ product['naam'] }}</a></td>
 				<td>€ {{ '%.2f' % product['prijs_inc'] }}</td>
 				<td>{{ product['wat'] }}</td>
 			</tr>

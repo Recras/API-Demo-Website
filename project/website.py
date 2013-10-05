@@ -36,6 +36,14 @@ def producten():
 		producten = r['results']	
 		return render_template('producten.html', producten = producten)
 
+@app.route('/producten/<int:product_id>')
+def product(product_id):
+	url = '%s/api/json/producten/id/%i' % (app.config['RECRAS_URL'], product_id)
+	r = requests.get(url, verify=app.config['RECRAS_CRT']).json()
+	if r['succes']:
+		product = r['results'][0]
+		return render_template('product.html', product = product)
+
 @app.route('/contactformulier')
 def contactformulier():
 	proxy = base64.urlsafe_b64encode('/proxy'.encode('utf-8'))
