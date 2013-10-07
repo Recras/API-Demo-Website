@@ -4,6 +4,10 @@
 {% if product %}
 	<h2>{{ product['naam'] }}</h2>
 
+	<p>
+		{{ product['beschrijving'] }}
+	</p>
+
 	Vanaf € {{ '%.2f' % product['prijs_inc'] }} per {{ product['wat'] }}
 {% endif %}
 
