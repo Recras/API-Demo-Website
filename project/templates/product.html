@@ -18,7 +18,7 @@
 		</p>
 		<ul>
 		{% for item in product['arrangementen'] %}
-			<li><a href="/arrangementen/{{ item['id'] }}">{{ item['naam'] }}</a></li>
+			<li><a href="{{ url_for('arrangement', arrangement_id=item['id']) }}">{{ item['naam'] }}</a></li>
 		{% endfor %}
 		</ul>
 	{% endif %}
