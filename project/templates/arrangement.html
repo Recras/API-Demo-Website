@@ -18,11 +18,30 @@
 		</div>
 		<div class="tab-pane" id="voorbeeldprogramma">
 			<h3>Voorbeeldprogramma</h3>
-			<ul>
-			{% for regel in arrangement['programma'] %}   
-				<li>{{ regel }}</li>
-			{% endfor %}
-			</ul>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Begin</th>
+						<th>Eind</th>
+						<th>Omschrijving</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for regel in arrangement['voorbeeld_programma'] %}  
+						<tr>
+							<td>{{ regel['tijd_begin'] }}</td>
+							<td>{{ regel['tijd_eind'] }}</td>
+							<td>
+								{% if regel['product']: %}
+									<a href="{{ url_for('product', product_id=regel['product']['id']) }}">{{ regel['omschrijving'] }}</a>
+								{% else: %}
+									{{ regel['omschrijving'] }}
+								{% endif %}
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
 		</div>
 		<div class="tab-pane" id="prijzen">
 			<h3>Prijzen</h3>
