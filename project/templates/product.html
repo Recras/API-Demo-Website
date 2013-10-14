@@ -10,15 +10,15 @@
 
 	Vanaf € {{ '%.2f' % product['prijs_inc'] }} per {{ product['wat'] }}
 
-	{% if arrangementen %}
+	{% if product['arrangementen'] %}
 		<h3>Arrangementen</h3>
 
 		<p>
 			Dit product wordt gebruikt in arrangementen:
 		</p>
 		<ul>
-		{% for item in arrangementen %}
-			<li><a href="/arrangement/{{ item.id }}">{{ item.naam }}</a></li>
+		{% for item in product['arrangementen'] %}
+			<li><a href="/arrangementen/{{ item['id'] }}">{{ item['naam'] }}</a></li>
 		{% endfor %}
 		</ul>
 	{% endif %}
