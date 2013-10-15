@@ -14,6 +14,7 @@
 
 		<!-- Custom styles for this template -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css">
+		<link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.3/themes/ui-lightness/jquery-ui.css">
 		<style>
 			body {
 				padding-top: 50px; /* 50px to make the container go all the way to the bottom of the topbar */
@@ -24,6 +25,7 @@
 	<body>
 
 		<script src="//codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+		<script src="//codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
 		<div class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
@@ -41,6 +43,7 @@
 				('home', 'Home'),
 				('arrangementen', 'Arrangementen'),
 				('producten', 'Producten'),
+				('beschikbaarheidvergaderruimte', 'Beschikbaarheid Vergaderruimte'),
 				('onlineboeken', 'Online boeken'),
 				('contactformulier', 'Contact'),
 			] %}
@@ -71,6 +74,7 @@
 		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="{{ url_for('static', filename='js/availability.js') }}"></script>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	</body>
 </html>

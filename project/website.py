@@ -67,6 +67,11 @@ def onlineboeken():
 def bedankt():
 	return render_template('bedankt.html')
 
+@app.route('/beschikbaarheid_vergaderruimte')
+def beschikbaarheidvergaderruimte():
+	url = '%s/api/arrangementbeschikbaarheid?id=9&sf_format=json' % app.config['RECRAS_URL']
+	return render_template('beschikbaarheid_vergaderruimte.html', url = url)
+
 if __name__ == "__main__":
 	app.debug = True
 	app.run()
