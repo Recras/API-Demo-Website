@@ -25,6 +25,7 @@ $(document).ready(function()
     $.getJSON(div.attr('href'), function(data) {
         availableDates  = data['results'];
         
+        div.text('');
         div.datepicker({
             dateFormat:       'yy-mm-dd',
             firstDay:         1,
