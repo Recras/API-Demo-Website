@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import requests
 import base64
 import data
@@ -54,7 +54,7 @@ def contactformulier():
 
 @app.route('/onlineboeken')
 def onlineboeken():
-	return render_template('onlineboeken.html')
+	return redirect("http://demo.recras.nl/onlineboeking")
 
 @app.route('/bedankt')
 def bedankt():
