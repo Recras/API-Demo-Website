@@ -16,12 +16,6 @@
 <!-- Example row of columns -->
 <div class="row">
 	<div class="col-lg-4">
-	  <h2>Contactformulier</h2>
-	  <p>Het is zeer makkelijk om een contactformulier te integreren op een website. Ingevulde formulieren komen automatisch in Recras.</p>
-	  <p><a class="btn btn-primary" href="{{ url_for('contactformulier') }}">Bekijk contactformulier &raquo;</a></p>
-	</div>
-
-	<div class="col-lg-4">
 	  <h2>Arrangementen</h2>
 	  <p>Met behulp van onze API is het mogelijk om automatisch up-to-date lijst van arrangementen weer te geven op de website.</p>
 	  <p><a class="btn btn-primary" href="{{ url_for('arrangementen') }}">Bekijk arrangementen &raquo;</a></p>
@@ -29,8 +23,27 @@
 
 	<div class="col-lg-4">
 	  <h2>Producten</h2>
-	  <p>Producten uit Recras</p>
+	  <p>De producten die in Recras worden ingevoerd kunnen door middel van onze API op uw website worden weergegeven.</p>
 	  <p><a class="btn btn-primary" href="{{ url_for('producten') }}">Bekijk producten &raquo;</a></p>
+	</div>
+
+	<div class="col-lg-4">
+	  <h2>Contactformulier</h2>
+	  <p>Het is zeer makkelijk om een contactformulier te integreren op een website. Ingevulde formulieren komen automatisch in Recras.</p>
+	  <p><a class="btn btn-primary" href="{{ url_for('contactformulier') }}">Bekijk contactformulier &raquo;</a></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-4">
+	  <h2>Beschikbaarheid</h2>
+	  <p>De beschikbaarheid van een ruimte of product kan makkelijk gekoppeld worden aan uw website.</p>
+	  <p><a class="btn btn-primary" href="{{ url_for('beschikbaarheidvergaderruimte') }}">Bekijk Beschikbaarheid &raquo;</a></p>
+	</div>
+
+	<div class="col-lg-4">
+	  <h2>Online Boeken</h2>
+	  <p>Het is mogelijk om met behulp van Recras producten online te boeken en te betalen via iDEAL.</p>
+	  <p><a class="btn btn-primary" href="{{ url_for('onlineboeken') }}">Bekijk Online boeken &raquo;</a></p>
 	</div>
 </div>
 {% endblock %}
