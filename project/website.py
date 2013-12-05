@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 import requests
 import base64
 import data
@@ -16,7 +16,7 @@ def arrangementen():
 	url = '%s/api/json/arrangementen/' % app.config['RECRAS_URL']
 	r = requests.get(url, verify=app.config['RECRAS_CRT']).json()
 	if r['succes']:
-		arrangementen = r['results']	
+		arrangementen = r['results']
 		return render_template('arrangementen.html', arrangementen = arrangementen)
 
 @app.route('/arrangementen/<int:arrangement_id>')
@@ -25,7 +25,7 @@ def arrangement(arrangement_id):
 	r = requests.get(url, verify=app.config['RECRAS_CRT']).json()
 	if r['succes']:
 		arrangement = r['results'][0]
-		arrangement_data = data.arrangementen[arrangement['id']] if arrangement['id'] in data.arrangementen else None 
+		arrangement_data = data.arrangementen[arrangement['id']] if arrangement['id'] in data.arrangementen else None
 		return render_template('arrangement.html', arrangement = arrangement, data = arrangement_data)
 
 @app.route('/producten')
@@ -33,7 +33,7 @@ def producten():
 	url = '%s/api/json/producten/' % app.config['RECRAS_URL']
 	r = requests.get(url, verify=app.config['RECRAS_CRT']).json()
 	if r['succes']:
-		producten = r['results']	
+		producten = r['results']
 		return render_template('producten.html', producten = producten)
 
 @app.route('/producten/<int:product_id>')
