@@ -1,7 +1,12 @@
 from flask import Flask, render_template, redirect
+from jinja2 import evalcontextfilter, Markup, escape
 import requests
 import base64
 import data
+import re
+
+_paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
+
 
 app = Flask(__name__)
 app.config['RECRAS_URL'] = 'https://demo.recras.nl/'
@@ -64,6 +69,15 @@ def bedankt():
 def beschikbaarheidvergaderruimte():
 	url = '%s/api/arrangementbeschikbaarheid?id=9&sf_format=json' % app.config['RECRAS_URL']
 	return render_template('beschikbaarheid_vergaderruimte.html', url = url)
+
+@app.template_filter()
+@evalcontextfilter
+def nl2br(eval_ctx, value):
+    result = u'\n\n'.join(u'<p>%s</p>' % p.replace('\n', '<br>\n') \
+        for p in _paragraph_re.split(escape(value)))
+    if eval_ctx.autoescape:
+        result = Markup(result)
+    return result
 
 if __name__ == "__main__":
 	app.debug = True

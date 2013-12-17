@@ -10,11 +10,11 @@
 		<li><a data-toggle="tab" href="#voorbeeldprogramma">Voorbeeldprogramma</a></li>
 		<li><a data-toggle="tab" href="#prijzen">Prijzen</a></li>
 	</ul>
-	
+
 	<div class="tab-content">
 		<div class="tab-pane active" id="informatie">
 			<h3>Informatie</h3>
-			<p>{{ data['beschrijving'] }}</p>
+			<p>{{ data['beschrijving'] | nl2br }}</p>
 		</div>
 		<div class="tab-pane" id="voorbeeldprogramma">
 			<h3>Voorbeeldprogramma</h3>
@@ -27,7 +27,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% for regel in arrangement['voorbeeld_programma'] %}  
+					{% for regel in arrangement['voorbeeld_programma'] %}
 						<tr>
 							<td>{{ regel['tijd_begin'] }}</td>
 							<td>{{ regel['tijd_eind'] }}</td>
